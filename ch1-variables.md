@@ -95,11 +95,16 @@ However, it _compiles faster_ than all of them, which makes the developer experi
 
 - `complex64 complex128`
 
-Unless you have specific needs, these should be used as the "standard" sizes:
+Unless you have specific needs or concerned about _performance_ and _memory usage_, the "standard" types should be used to avoid confusion and maintain code readability:
+
+- `int`
+- `float64`
+
+and "standard" sizes:
 
 - `int`
 - `uint`
-- `float`
+- `float64`
 - `complex128`
 
 ## Converting Types
