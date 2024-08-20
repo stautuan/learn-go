@@ -144,8 +144,8 @@ Allowed ✅
 
 ```go
 const secondsInMinute = 60
-	const minutesInHour = 60
-	const secondsInHour = secondsInMinute * minutesInHour
+    const minutesInHour = 60
+    const secondsInHour = secondsInMinute * minutesInHour
 ```
 
 Not allowed ❌
@@ -153,4 +153,44 @@ Not allowed ❌
 ```go
 // the current time can only be known when the program is running
 const currentTime = time.Now()
+```
+
+## Formatting Strings in Go
+
+- `fmt.Printf` prints a formatted string
+- `fmt.Sprintf()` returns the formatted string
+
+### Default
+
+```go
+s := fmt.Sprintf("I am %v years old", 10)
+// I am 10 years old
+
+s := fmt.Sprintf("I am %v years old", "way too many")
+// I am way too many years old
+```
+
+### String
+
+```go
+s := fmt.Sprintf("I am %s years old", "way too many")
+// I am way too many years old
+```
+
+### Integer
+
+```go
+s := fmt.Sprintf("I am %d years old", 10)
+// I am 10 years old
+```
+
+### Float
+
+```go
+s := fmt.Sprintf("I am %f years old", 10.523)
+// I am 10.523 years old
+
+// The ".2" rounds the number to 2 decimal places
+s := fmt.Sprintf("I am %.2f years old", 10.523)
+// I am 10.52 years old
 ```
