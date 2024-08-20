@@ -116,3 +116,16 @@ accountAgeInt := int(accountAgeFloat)
 // this truncates the value of the float.
 // accountAgeInt = 2
 ```
+
+## Go is statically typed
+
+What does it mean? It means that the code will not compile if errors are detected during production. Whereas dynamically typed languages like JavaScript and Python, the program needs to run in order to detect issues.
+
+Once it is compiled, the compiled executable can be run _without_ the source code.
+
+## Small Memory Footprint
+
+Go programs are lightweight.
+
+- Go runtime cleans up unused memory at runtime.
+- Garbage collector automatically frees up memory that's no longer in use.
