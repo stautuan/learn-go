@@ -129,3 +129,28 @@ Go programs are lightweight.
 
 - Go runtime cleans up unused memory at runtime.
 - Garbage collector automatically frees up memory that's no longer in use.
+
+## Constants
+
+- They cannot use `:=`
+- They can only be **primitive** types like strings, integers, booleans and floats
+- It cannot be overwritten. Therefore you need to create separate constants.
+
+### Computed Constants
+
+Constants can be computed as long as the computation can happen at compile time.
+
+Allowed ✅
+
+```go
+const secondsInMinute = 60
+	const minutesInHour = 60
+	const secondsInHour = secondsInMinute * minutesInHour
+```
+
+Not allowed ❌
+
+```go
+// the current time can only be known when the program is running
+const currentTime = time.Now()
+```
