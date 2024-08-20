@@ -8,7 +8,7 @@ package main
 import "fmt"
 
 func main() {
-  fmt.Println("I am learning Go...")
+    fmt.Println("I am learning Go...")
 }
 ```
 
@@ -38,13 +38,13 @@ package main
 import "fmt"
 
 func main() {
-  messageStart := "Happy birthday! You are now"
-  age := 21
-  messageEnd := "years old!"
+    messageStart := "Happy birthday! You are now"
+    age := 21
+    messageEnd := "years old!"
 
-  fmt.Println(messageStart, age, messageEnd)
+    fmt.Println(messageStart, age, messageEnd)
 
-  // Happy birthday! You are now 21 years old!
+    // Happy birthday! You are now 21 years old!
 }
 ```
 
@@ -65,12 +65,49 @@ import "fmt"
 
 /* the main function, entry point for a Go progam */
 func main() {
-  // code here
+    // code here
 }
 ```
 
 ## 🏃💨 Fast and Compiled
 
-Go is one of the fastest programming languages. Faster than interpreted languages like JavaScript and Python, but not as fast as low-level languages like as Rust, Zig or C.
+Go is one of the fastest programming languages. Faster than interpreted languages like JavaScript and Python, but not as fast as low-level languages like Rust, Zig or C.
 
-However, it _compiles_ faster than all of them, which makes the developer experience super productive.
+However, it _compiles faster_ than all of them, which makes the developer experience super productive.
+
+## Type Sizes
+
+### Whole Numbers
+
+- no decimal
+- `int int8 int16 int32 int64`
+
+### Positive whole numbers
+
+- no decimal
+- `uint uint8 uint16 uint32 uint64`
+
+### Signed decimal numbers
+
+- `float32 float64`
+
+### Imaginary numbers (rarely used)
+
+- `complex64 complex128`
+
+Unless you have specific needs, these should be used as the "standard" sizes:
+
+- `int`
+- `uint`
+- `float`
+- `complex128`
+
+## Converting Types
+
+```go
+accountAgeFloat := 2.6
+accountAgeInt := int(accountAgeFloat)
+
+// this truncates the value of the float.
+// accountAgeInt = 2
+```
