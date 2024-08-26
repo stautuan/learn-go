@@ -23,7 +23,7 @@ int y;
 
 ### Go-style syntax
 
-Clear and intuitive, you read them left to right, like you would in English.
+The opposite way - you read them left to right, which is more clear and intuitive, like you would read in English.
 
 ```go
 x int
@@ -33,7 +33,7 @@ a [33]int
 
 ## Passing Variables by Value
 
-- When variables in Go are passed into a function, that function receives a **copy** of that variable.
+When variables in Go are passed into a function, that function receives a **copy** of that variable.
 
 ```go
 func main() {
@@ -41,9 +41,9 @@ func main() {
     increment(x)
 
     fmt.Println(x)
-    // it will still print 5
+    // still prints 5, which is the x that is defined above
     // the increment function received a copy of x
-    // the function is unable to mutate the caller's original data
+    // it did not mutate the caller's original data
 }
 
 func increment(x) {
@@ -55,7 +55,7 @@ func increment(x) {
 
 - A function can return a value that the caller doesn't care about.
 - We can ignore variables using an underscore.
-- The Go compiler will \*_throw an error_ if you have unused variable declarations in your code.
+- The Go compiler will **throw an error** if you have unused variable declarations in your code.
 
 ```go
 func getPoint() (x, y int) {
