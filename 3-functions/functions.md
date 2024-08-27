@@ -142,14 +142,14 @@ package main
 import "fmt"
 
 func printReports(intro, body, outro string) {
-	printCostReport(func(message string) int {
-		return 2 * len(message)
-	}, intro)
-	printCostReport(func(message string) int {
-		return 3 * len(message)
+    printCostReport(func(message string) int {
+        return 2 * len(message)
+    }, intro)
+    printCostReport(func(message string) int {
+        return 3 * len(message)
 	}, body)
-	printCostReport(func(message string) int {
-		return 4 * len(message)
+    printCostReport(func(message string) int {
+        return 4 * len(message)
 	}, outro)
 
     // the function inside printCostReport is an anonymous function
@@ -157,16 +157,52 @@ func printReports(intro, body, outro string) {
 }
 
 func main() {
-	printReports(
-		"Welcome to the Hotel California",
-		"Such a lovely place",
-		"Plenty of room at the Hotel California",
-	)
+    printReports(
+        "Welcome to the Hotel California",
+        "Such a lovely place",
+        "Plenty of room at the Hotel California",
+    )
 }
 
 func printCostReport(costCalculator func(string) int, message string) {
-	cost := costCalculator(message)
-	fmt.Printf(`Message: "%s" Cost: %v cents`, message, cost)
-	fmt.Println()
+    cost := costCalculator(message)
+    fmt.Printf(`Message: "%s" Cost: %v cents`, message, cost)
+    fmt.Println()
+}
+```
+
+## Defer
+
+- It delays the execution of a function or code until the surrounding function finishes
+- Use: to clean up resources that are no longer being used; close database connections, file handlers, and the like.
+
+```go
+func main() {
+    defer fmt.Println("Goodbye!")
+    fmt.Println("Hello!")
+}
+```
+
+- The program runs and `Hello` is printed.
+- When everything inside the function has been executed, `Goodbye` will be printed.
+
+## Block Scope
+
+Variables declared inside a function cannot be used outside the function.
+
+```go
+package main
+
+// scoped to the entire "main" package (basically global)
+var age = 19
+
+func sendEmail() {
+    // scoped to the "sendEmail" function
+    name := "Jon Snow"
+
+    for i := 0; i < 5; i++ {
+        // scoped to the "for" body
+        email := "snow@winterfell.net"
+    }
 }
 ```
