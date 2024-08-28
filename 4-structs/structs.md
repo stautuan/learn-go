@@ -23,6 +23,7 @@ type car struct {
     model string
     doors int
     mileage int
+    // nested struct
     frontWheel wheel
     backWheel wheel
 }
