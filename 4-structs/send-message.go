@@ -37,3 +37,4 @@ func newUser(name string, membershipType string) User {
     }
     return User{Name: name, Membership: membership}
 }
+*/

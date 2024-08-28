@@ -1,6 +1,6 @@
 # Structs in Go
 
-It represents structured data to group different variables together
+It represents structured data (fields) to group different variables together
 
 <!-- is this the equivalent of a class? -->
 
@@ -23,6 +23,7 @@ type car struct {
     model string
     doors int
     mileage int
+
     // nested struct
     frontWheel wheel
     backWheel wheel
@@ -43,9 +44,9 @@ myCar := frontWheel.radius = 5
 
 ## Anonymous structs
 
-- they are defined with NO NAME, therefore it cannot be referenced elsewhere in the code.
-- a good reason to use them is if it is only being used once.
-- they prevent you from re-using a struct definition you never intended to re-use
+- They are defined with NO NAME, therefore it cannot be referenced elsewhere in the code.
+- A good reason to use them is if it is only being used once.
+- They prevent you from re-using a struct definition you never intended to re-use
 
 ```go
 myCar := struct {
@@ -65,6 +66,7 @@ type care struct {
     model string
     doors int
     mileage int
+
     // wheel is a field containing an anonymous struct
     wheel struct {
         radius int
@@ -77,7 +79,7 @@ type care struct {
 
 Go is not object-oriented, it doesn't support classes or inheritance, but embedded structs are a way to elevate and share fields between struct definitions.
 
-<!-- i think they are the equivalent of a parent class -->
+<!-- embedded struct is an equivalent of super() constructor? -->
 
 ```go
 type car struct {
@@ -95,6 +97,7 @@ type truck struct {
 ```
 
 ```go
+// lanesStruck is an instance of truck
 lanesTruck := truck{
     bedSize: 10,
     car: car{
@@ -140,7 +143,7 @@ fmt.Println(r.area())
 ### What is a receiver?
 
 - a special parameter in a function
-- by convention, the first letter of the structs name is used
+- by convention, the first letter of the struct's name is used
 
 ## Memory Layout
 
@@ -148,7 +151,7 @@ fmt.Println(r.area())
 - its fields are stored in memory in one continuous block, without any gaps between them
 - this makes accessing data fast because they are laid out in an organized way
 - the fields are also placed in order as they are defined
-- ordering matters (from largest to smallest)
+- so ordering matters (from largest to smallest) if you want to save memory
 
 ### ✅ Good
 
@@ -176,7 +179,6 @@ type stats struct {
 They are the smallest type in go; they take up **zero bytes of memory**.
 
 ```go
-
 // anonymous empty struct type
 empty := struct{}{}
 
