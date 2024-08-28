@@ -19,6 +19,8 @@ type Membership struct {
 }
 
 func newUser(name string, membershipType string) User {
+
+    // create an instance in order to access its data fields
     membership := Membership{}
     membership.Type = membershipType
 
@@ -30,3 +32,4 @@ func newUser(name string, membershipType string) User {
     }
     return User{Name: name, Membership: membership}
 }
+*/
