@@ -2,6 +2,9 @@
 
 - Interfaces are collection of method signatures.
 - A type "implements" an interface if it has methods that match the interface's method signatures.
+- They are implemented _implicitly_.
+- A type never declares that it implements a given interface.
+- A type can implement multiple interfaces.
 
 ```go
 type Shape interface {
@@ -20,3 +23,5 @@ func (r rect) perimeter() float64 {
     return 2*r.width + 2*r.height
 }
 ```
+
+## Multiple Interfaces
