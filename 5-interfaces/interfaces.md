@@ -32,4 +32,4 @@ type Copier interface {
 }
 ```
 
-It is not required to name the arguments of an interface in order for your code to compile propery BUT it's good to have to **readability and clarity**.
+It is not required to name the arguments of an interface in order for your code to compile properly BUT it's good to have for **readability and clarity**.
