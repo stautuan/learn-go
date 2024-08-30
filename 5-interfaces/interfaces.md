@@ -82,3 +82,51 @@ func main() {
     // prints "struct {}"
 }
 ```
+
+## Guidelines on writing clean interfaces
+
+### 1. Keep interfaces small
+
+- Very important
+- Interfaces are meant to define the _minimal_ behaviour to represent an idea or concept.
+
+```go
+type File interface {
+    io.Close
+    io.Reader
+    io.Seeker
+    Readdir(count int) ([]os.FileInfo, error)
+    Stat() (os.FileInfo, error)
+}
+```
+
+### 2. Interfaces should have no knowledge of satisfying types
+
+```go
+type car interface {
+    Color() string
+    Speed() int
+    IsFiretruck() bool
+}
+```
+
+- This is an interface that describes the components NECESSARY to define a car.
+- `Color()` and `Speed()` makes sense, but `IsFiretruck()` don't, because there are different types of a car. The list would go on and on...
+
+We should rely on the functionality of type assertion.
+
+```go
+type firetruck interface {
+    car
+    HoseLength() int
+}
+// it inherits all the methods from car interface and
+// adds one additional method to make the car a firetruck
+```
+
+### 3. Interfaces are NOT classes
+
+- They are more lightweight than classes.
+- They don't have contructors or deconstructors. They don't create or destroy data. They just describe what functions should exist.
+- They aren't hierarchical by nature (parent-child relationship).
+- They only say what functions are required, NOT how they should work. Even if multiple types use the same interface, each type has to implement its own version of the function.
