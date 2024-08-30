@@ -9,7 +9,7 @@ its importance score based on user interaction and content.
 
 package main
 
-type notification inferface {
+type notification interface {
     importance() int
 }
 
