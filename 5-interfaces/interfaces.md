@@ -56,3 +56,29 @@ if !ok {
 
 radius := c.radius
 ```
+
+## Type switches
+
+A type switch is similar to regular switches, but the cases specify _types_ instead of _values_.
+
+```go
+func printNumericValue(num interface{}) {
+    switch v:= num.(type) {
+        case int:
+        fmt.Printf("%T\n", v)
+        case string:
+        fmt.Printf("%T\n", v)
+        default:
+        fmt.Printf("%T\n", v)
+    }
+}
+
+func main() {
+    printNumericValue(1)
+    // prints "int"
+    printNumericValue("1")
+    // prints "string"
+    printNumericValue(struct{}{})
+    // prints "struct {}"
+}
+```
