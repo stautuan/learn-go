@@ -13,7 +13,7 @@ func fizzbuzz() {
         } else {
             fmt.Println(i)
         }
-	}
+    }
 }
 
 func main() {
