@@ -52,3 +52,7 @@ mySlice := []string{"I", "love", "go"}
 // notice that the square brackets didn't have a 3 in them
 // if they did, it would be an array instead of a slice
 ```
+
+- `len()`: is the current length of the slice
+- `cap()`:is the maximum length of the slice
+- `len()` and `cap()` return 0 when the slice is `nil`
