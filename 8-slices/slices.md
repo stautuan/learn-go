@@ -28,7 +28,9 @@ mySlice := primes[1:4]
 // mySlice = {3, 5, 7}
 ```
 
-The syntax is `arrayname[lowIndex:highIndex]`, where `lowIndex` is inclusive and `highIndex` is exclusive. Both can also be omitted `arrayname[:]`.
+The syntax is `arrayname[lowIndex:highIndex]`, where `lowIndex` is inclusive and `highIndex` is exclusive.
+
+Both can also be omitted `arrayname[:]`. This represents an empty array.
 
 ## Make
 
@@ -56,3 +58,45 @@ mySlice := []string{"I", "love", "go"}
 - `len()`: is the current length of the slice
 - `cap()`:is the maximum length of the slice
 - `len()` and `cap()` return 0 when the slice is `nil`
+
+## Variadic
+
+Variadic functions are functions that can take many arguments of the same type without explicity declaring it. This is useful when you don't know how many arguments you'll need to pass.
+
+You define a variadic function by using `...` before you declare the type.
+
+```go
+func concat(strs ...string) string {
+    final := ""
+    // strs is just a slice of strings
+    for i := 0; i < len(strs); i++ {
+        final += strs[i]
+    }
+    return final
+}
+
+func main() {
+    final := concat("Hello ", "there ", "friend!")
+    fmt.Println(final)
+    // Output: Hello there friend!
+}
+```
+
+### Spread operator
+
+Spread operator allows us to pass a slice into a variadic function. It consists of three dots after the slice.
+
+```go
+func main() {
+    names := []string{"bob", "sue", "alice"}
+    printStrings(names...)
+}
+```
+
+## Append
+
+Append allows us to dynamically add elements to a slice.
+
+```go
+func append(slice []Type, elems ...Type) []Type
+```
