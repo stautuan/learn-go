@@ -95,8 +95,28 @@ func main() {
 
 ## Append
 
-Append allows us to dynamically add elements to a slice.
+`append()` allows us to dynamically add elements to a slice.
 
 ```go
 func append(slice []Type, elems ...Type) []Type
+```
+
+It has two functions:
+
+- It can modify the underlying array of the slice it's given.
+- It always returns a new slice.
+
+Therefore, if you don't assign the result back to the original slice, it might have unexpected results and confusing outcomes -- you might change the underlying array, while working with another. It is best to append it this way:
+
+```go
+mySlice := append(mySlice, newElement)
+```
+
+## Range
+
+`range()` easily iterates over elements of a slice:
+
+```go
+for INDEX, ELEMENT := range SLICE {
+}
 ```
